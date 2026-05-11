@@ -5,47 +5,33 @@
   config_schema: {
     type: "object",
     properties: {
-      model_name: {
+      anthropic_api_key: {
         type: "string",
-        description: "LLM model name (e.g., gpt-4o, openrouter/deepseek/deepseek-v3.2, anthropic/claude-sonnet-4-5-20250929, gemini/gemini-2.5-pro)",
-        default: "gpt-4o",
+        title: "Anthropic API Key",
+        secret: true,
       },
-      openai_api_key: { type: "string", secret: true },
-      anthropic_api_key: { type: "string", secret: true },
-      openrouter_api_key: { type: "string", secret: true },
-      gemini_api_key: { type: "string", secret: true },
     },
-    required: [],
+    required: ["anthropic_api_key"],
     additionalProperties: false,
   },
-
   program: {
-    image: "ghcr.io/rdi-foundation/swe-bench-purple-agent:latest",
-    entrypoint: "uv run python src/server.py --host 0.0.0.0 --port 9009",
-
+    image: "ghcr.io/soumya-batra/purple-swebench-pro:latest",
+    entrypoint: "uv run --no-sync src/server.py --host 0.0.0.0 --port 9009",
     env: {
-      MSWEA_COST_TRACKING: "ignore_errors",
-      MODEL_NAME: "${config.model_name}",
-      OPENAI_API_KEY: { when: "config.openai_api_key", value: "${config.openai_api_key}" },
-      ANTHROPIC_API_KEY: { when: "config.anthropic_api_key", value: "${config.anthropic_api_key}" },
-      OPENROUTER_API_KEY: { when: "config.openrouter_api_key", value: "${config.openrouter_api_key}" },
-      GEMINI_API_KEY: { when: "config.gemini_api_key", value: "${config.gemini_api_key}" },
+      PYTHONUNBUFFERED: "1",
+      ANTHROPIC_API_KEY: "${config.anthropic_api_key}",
     },
-
     mounts: [
       { path: "/var/run/docker.sock", from: "framework.docker" },
     ],
-
     network: {
       endpoints: [
-        { name: "a2a_endpoint", port: 9009 },
+        { name: "endpoint", port: 9009 },
       ],
     },
   },
-
   provides: {
-    a2a: { kind: "a2a", endpoint: "a2a_endpoint" },
+    a2a: { kind: "a2a", endpoint: "endpoint" },
   },
-
   exports: { a2a: "a2a" },
 }

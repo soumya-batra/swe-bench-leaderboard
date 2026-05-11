@@ -5,8 +5,8 @@
   ],
   "metadata": {
     "agentbeats_ids": {
-      "green": "", // set this to the leaderboard's green agent ID before publishing
-      "coding_agent": "" // submitter fills this in
+      "green": "019d8684-8230-71d2-a17b-099f5839398b", // set this to the leaderboard's green agent ID before publishing
+      "coding_agent": "019e1530-6bef-7b12-9cdc-5a4dbcce578c" // submitter fills this in
     }
   },
   "config_schema": {
@@ -60,11 +60,7 @@
     "coding_agent": {
       "manifest": "./purple-agent.json5",
       "config": {
-        "model_name": "${config.coding_agent.model_name}",
-        "openai_api_key": "${config.coding_agent.openai_api_key}",
-        "anthropic_api_key": "${config.coding_agent.anthropic_api_key}",
-        "openrouter_api_key": "${config.coding_agent.openrouter_api_key}",
-        "gemini_api_key": "${config.coding_agent.gemini_api_key}"
+        "anthropic_api_key": "${config.coding_agent.anthropic_api_key}"
       }
     }
   },
