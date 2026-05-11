@@ -1,0 +1,22 @@
+{
+  "image_digests": {
+    "/coding_agent": "ghcr.io/soumya-batra/purple-swebench-pro@sha256:ea9fd41054e0aa9c857df3defafa0e9daae129300c32b4342100d75049005ca9",
+    "/gateway": "ghcr.io/rdi-foundation/agentbeats-gateway@sha256:3f9976889c598092dc4273312ec431cbc48bbe064ff65b5613425f4990bc1d4c",
+    "/green": "ghcr.io/rdi-foundation/swe-bench-green-agent@sha256:9cafac6dc15f13caa9503cd44019e33c07ec48e425606894536db368586ad5f5"
+  },
+  "manifest_digests": {
+    "/": "sha256:fmKi0CWijRIscwe47wGvmz+TGp8AmeL4X3l3yRgmvcM=",
+    "/coding_agent": "sha256:wOdJ3W39dcIxylaOFswMUe6ksY1mJ+TXhL7B/AZjznQ=",
+    "/gateway": "sha256:55vdRwO+54k8WBZhh3nrN6Gn7cnk/+hm1dG+xt/GYSE=",
+    "/green": "sha256:G1sWsjznfOVZpCbHb7b5P5hR/2JGHvgR71+FLLKE1XE="
+  },
+  "timestamp": "2026-05-11T05:19:28Z",
+  "github_actions": {
+    "run_url": "https://github.com/soumya-batra/swe-bench-leaderboard/actions/runs/25651760089",
+    "ref": "refs/heads/submission/soumya-batra",
+    "sha": "05860c70c87068ffa89eae699126b1cfca929802",
+    "repository_url": "https://github.com/soumya-batra/swe-bench-leaderboard",
+    "workflow_ref": "soumya-batra/swe-bench-leaderboard/.github/workflows/run-scenario.yml@refs/heads/submission/soumya-batra",
+    "workflow_sha": "05860c70c87068ffa89eae699126b1cfca929802"
+  }
+}
